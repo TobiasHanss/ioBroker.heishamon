@@ -4,13 +4,13 @@ Das Projekt ist in fünf Phasen gegliedert. Jede Phase hat ein klares Deliverabl
 
 ## Übersicht
 
-| Phase | Titel | Deliverable | Datei |
-|-------|-------|-------------|-------|
-| 0 | Recon & Protokoll-Audit | `docs/protocol/`-Inhalt | [phase-0-recon.md](phase-0-recon.md) |
-| 1 | Protokoll-Bibliothek (TS) | `packages/heishamon-protocol/` | [phase-1-protocol-lib.md](phase-1-protocol-lib.md) |
-| 2 | WP-Simulator | `packages/heishamon-sim/` | [phase-2-simulator.md](phase-2-simulator.md) |
-| 3 | ioBroker-Adapter | `packages/iobroker.heishamon/` | [phase-3-adapter.md](phase-3-adapter.md) |
-| 4 | Parallelbetrieb & Cut-Over | Heizung läuft am neuen Adapter | [phase-4-cutover.md](phase-4-cutover.md) |
+| Phase | Titel | Status | Deliverable | Datei |
+|-------|-------|--------|-------------|-------|
+| 0 | Recon & Protokoll-Audit | ✅ abgeschlossen | [`docs/protocol/`](../protocol/) gefüllt | [phase-0-recon.md](phase-0-recon.md) |
+| 1 | Protokoll-Bibliothek (TS) | offen | `packages/heishamon-protocol/` | [phase-1-protocol-lib.md](phase-1-protocol-lib.md) |
+| 2 | WP-Simulator | offen | `packages/heishamon-sim/` | [phase-2-simulator.md](phase-2-simulator.md) |
+| 3 | ioBroker-Adapter | offen | `packages/iobroker.heishamon/` | [phase-3-adapter.md](phase-3-adapter.md) |
+| 4 | Parallelbetrieb & Cut-Over | offen | Heizung läuft am neuen Adapter | [phase-4-cutover.md](phase-4-cutover.md) |
 
 ## Leitprinzipien
 
