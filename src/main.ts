@@ -277,9 +277,12 @@ class HeishamonAdapter extends AdapterBase {
       );
     }
     for (const state of states) {
-      await this.setObjectNotExistsAsync(
+      // extendObject (not setObjectNotExists) so that corrections to `common`
+      // — e.g. the role/write fix for writable datapoints (level vs value) —
+      // propagate to objects already created on an upgraded installation.
+      await this.extendObjectAsync(
         state._id,
-        state as unknown as ioBroker.SettableObject,
+        state as unknown as ioBroker.PartialObject,
       );
     }
     for (const infoState of infoStates) {

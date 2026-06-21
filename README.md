@@ -121,6 +121,11 @@ The CN-CNT protocol itself is not published by Panasonic; what HeishaMon discove
     ### **WORK IN PROGRESS**
 -->
 
+### 0.0.11 (2026-06-21)
+* (Tobias Hanss) Object state roles for writable datapoints are now `level` instead of `value` (the `value` role requires `write=false`), fixing the repository checker's object-structure errors (E1011)
+* (Tobias Hanss) State objects are now updated on upgrade (`extendObject`) so existing installations pick up the corrected roles
+* (Tobias Hanss) Added the recommended i18n translations for the `info.connection` state name (W1001)
+
 ### 0.0.10 (2026-06-21)
 * (Tobias Hanss) Published from CI with npm provenance (signed build attestation). No change to the adapter itself
 
@@ -151,6 +156,8 @@ The CN-CNT protocol itself is not published by Panasonic; what HeishaMon discove
 
 ### 0.0.1 (2026-05-25)
 * (Tobias Hanss) Initial adapter release
+
+[Older changelogs can be found there](CHANGELOG_OLD.md)
 
 ## License
 

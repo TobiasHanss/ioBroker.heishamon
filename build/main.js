@@ -205,7 +205,10 @@ class HeishamonAdapter extends AdapterBase {
             await this.setObjectNotExistsAsync(channel._id, channel);
         }
         for (const state of states) {
-            await this.setObjectNotExistsAsync(state._id, state);
+            // extendObject (not setObjectNotExists) so that corrections to `common`
+            // — e.g. the role/write fix for writable datapoints (level vs value) —
+            // propagate to objects already created on an upgraded installation.
+            await this.extendObjectAsync(state._id, state);
         }
         for (const infoState of infoStates) {
             await this.setObjectNotExistsAsync(infoState._id, infoState);

@@ -1,8 +1,21 @@
 {
   "common": {
     "name": "heishamon",
-    "version": "0.0.10",
+    "version": "0.0.11",
     "news": {
+      "0.0.11": {
+        "en": "Object state roles for writable datapoints are now 'level' instead of 'value' (the 'value' role requires write=false), fixing the repository checker's object-structure errors (E1011). State objects are now updated on upgrade so existing installations pick up the corrected roles. Added the recommended i18n translations for the connection state. No change to the heat-pump communication.",
+        "de": "Die Objekt-Rollen schreibbarer Datapoints sind jetzt 'level' statt 'value' (die Rolle 'value' verlangt write=false) — behebt die Objektstruktur-Fehler des Repository-Checkers (E1011). State-Objekte werden beim Upgrade aktualisiert, sodass bestehende Installationen die korrigierten Rollen übernehmen. Empfohlene i18n-Übersetzungen für den Verbindungs-State ergänzt. Keine Änderung an der WP-Kommunikation.",
+        "ru": "Роли объектов для записываемых датапоинтов теперь 'level' вместо 'value' (роль 'value' требует write=false), что устраняет ошибки структуры объектов в repository checker (E1011). Объекты состояний теперь обновляются при апгрейде, поэтому существующие установки получают исправленные роли. Добавлены рекомендуемые переводы i18n для состояния подключения. Связь с тепловым насосом не изменена.",
+        "pt": "Os papéis dos objetos para datapoints graváveis são agora 'level' em vez de 'value' (o papel 'value' exige write=false), corrigindo os erros de estrutura de objetos do repository checker (E1011). Os objetos de estado são agora atualizados na atualização, para que as instalações existentes adotem os papéis corrigidos. Adicionadas as traduções i18n recomendadas para o estado da ligação. Sem alterações na comunicação com a bomba de calor.",
+        "nl": "Objectrollen voor schrijfbare datapoints zijn nu 'level' in plaats van 'value' (de rol 'value' vereist write=false), wat de objectstructuurfouten van de repository checker (E1011) oplost. State-objecten worden nu bijgewerkt bij een upgrade, zodat bestaande installaties de gecorrigeerde rollen overnemen. De aanbevolen i18n-vertalingen voor de verbindingsstatus toegevoegd. Geen wijziging in de communicatie met de warmtepomp.",
+        "fr": "Les rôles d'objet des datapoints inscriptibles sont désormais 'level' au lieu de 'value' (le rôle 'value' exige write=false), corrigeant les erreurs de structure d'objet du repository checker (E1011). Les objets d'état sont maintenant mis à jour lors d'une mise à niveau, afin que les installations existantes adoptent les rôles corrigés. Ajout des traductions i18n recommandées pour l'état de connexion. Aucun changement de la communication avec la pompe à chaleur.",
+        "it": "I ruoli degli oggetti per i datapoint scrivibili sono ora 'level' invece di 'value' (il ruolo 'value' richiede write=false), correggendo gli errori di struttura degli oggetti del repository checker (E1011). Gli oggetti di stato vengono ora aggiornati durante l'upgrade, così le installazioni esistenti adottano i ruoli corretti. Aggiunte le traduzioni i18n consigliate per lo stato della connessione. Nessuna modifica alla comunicazione con la pompa di calore.",
+        "es": "Los roles de objeto para datapoints escribibles ahora son 'level' en lugar de 'value' (el rol 'value' requiere write=false), corrigiendo los errores de estructura de objetos del repository checker (E1011). Los objetos de estado ahora se actualizan al actualizar, de modo que las instalaciones existentes adoptan los roles corregidos. Añadidas las traducciones i18n recomendadas para el estado de conexión. Sin cambios en la comunicación con la bomba de calor.",
+        "pl": "Role obiektów dla zapisywalnych datapointów to teraz 'level' zamiast 'value' (rola 'value' wymaga write=false), co naprawia błędy struktury obiektów w repository checker (E1011). Obiekty stanu są teraz aktualizowane podczas aktualizacji, więc istniejące instalacje przejmują poprawione role. Dodano zalecane tłumaczenia i18n dla stanu połączenia. Bez zmian w komunikacji z pompą ciepła.",
+        "uk": "Ролі об'єктів для записуваних датапоінтів тепер 'level' замість 'value' (роль 'value' вимагає write=false), що виправляє помилки структури об'єктів у repository checker (E1011). Об'єкти стану тепер оновлюються під час апгрейду, тож наявні встановлення отримують виправлені ролі. Додано рекомендовані переклади i18n для стану підключення. Зв'язок із тепловим насосом не змінено.",
+        "zh-cn": "可写数据点的对象角色现在为 'level' 而非 'value'（'value' 角色要求 write=false），修复了仓库检查器的对象结构错误（E1011）。状态对象现在会在升级时更新，因此现有安装会采用修正后的角色。新增了连接状态的推荐 i18n 翻译。热泵通信无变化。"
+      },
       "0.0.10": {
         "en": "Published from CI with npm provenance (signed build attestation). No change to the adapter itself.",
         "de": "Veröffentlichung aus der CI mit npm-Provenance (signierte Build-Attestierung). Keine Änderung am Adapter selbst.",
@@ -67,19 +80,6 @@
         "pl": "Diagnostyczne logi do inżynierii wstecznej potwierdzenia SET pompy ciepła. Po każdym poleceniu set adapter loguje wysłaną ramkę i odpowiedź pompy (typ ramki, timing, hexdump) na poziomie info. Tylko odczyt — timing magistrali bez zmian.",
         "uk": "Діагностичні логи для реверс-інжинірингу підтвердження SET теплового насоса. Після кожної set-команди адаптер логує надісланий кадр і відповідь ТН (тип кадру, тайминг, hexdump) на рівні info. Лише читання — тайминг шини незмінний.",
         "zh-cn": "用于逆向工程热泵 SET 确认帧的诊断日志。每次 set 命令后，适配器在 info 级别记录发送的帧以及热泵的回复（帧类型、时序、十六进制转储）。只读——总线时序不变。"
-      },
-      "0.0.5": {
-        "en": "Wire-queue gap is now enforced between every pair of sends, including across idle periods (the previous design only inserted the gap while several tasks were stacked up in the queue). Queue is hard-capped at 100 pending entries to prevent memory growth; overflows are logged and the dropped send is skipped.",
-        "de": "Der Mindestabstand der Wire-Queue gilt jetzt zwischen jedem Sende-Paar, auch über Leerläufe hinweg (vorher griff der Abstand nur, solange mehrere Tasks gestapelt in der Queue lagen). Queue ist hart auf 100 Einträge begrenzt, Überlauf wird geloggt und die Sendung verworfen.",
-        "ru": "Промежуток между записями теперь соблюдается между каждой парой отправок, в том числе во время простоев. Очередь ограничена 100 записями, переполнение логируется и отбрасывается.",
-        "pt": "O intervalo entre escritas é agora respeitado entre cada par de envios, incluindo durante períodos ociosos. Fila limitada a 100 entradas; estouro é registrado e o envio descartado.",
-        "nl": "De minimale tussentijd geldt nu tussen elk zendpaar, ook over inactieve periodes. Wachtrij is begrensd op 100 items; overflow wordt gelogd en de send overgeslagen.",
-        "fr": "L'intervalle minimal s'applique désormais entre chaque paire d'envois, y compris pendant les périodes inactives. File plafonnée à 100 entrées ; les débordements sont journalisés et l'envoi écarté.",
-        "it": "L'intervallo minimo viene ora rispettato tra ogni coppia di invii, anche durante periodi inattivi. Coda limitata a 100 voci; overflow viene loggato e l'invio scartato.",
-        "es": "El intervalo mínimo se respeta ahora entre cada par de envíos, incluso durante períodos inactivos. Cola limitada a 100 entradas; el desbordamiento se registra y el envío se descarta.",
-        "pl": "Minimalna przerwa jest teraz egzekwowana między każdą parą wysyłek, także w okresach bezczynności. Kolejka ograniczona do 100 wpisów; przepełnienie jest logowane, a wysyłka pomijana.",
-        "uk": "Мінімальний інтервал тепер дотримується між кожною парою відправок, у тому числі під час простоїв. Черга обмежена 100 записами; переповнення логується, відправлення відкидається.",
-        "zh-cn": "线路队列间隔现在在每两次发送之间生效，即使队列在中间清空过（之前只有在多个任务堆积时才生效）。队列硬上限 100 条，溢出将被记录并丢弃。"
       }
     },
     "titleLang": {
@@ -137,7 +137,7 @@
       { "js-controller": ">=6.0.11" }
     ],
     "globalDependencies": [
-      { "admin": ">=7.6.20" }
+      { "admin": ">=7.8.23" }
     ]
   },
   "native": {
@@ -170,7 +170,16 @@
         "role": "indicator.connected",
         "name": {
           "en": "Heat pump connection",
-          "de": "Verbindung zur Waermepumpe"
+          "de": "Verbindung zur Wärmepumpe",
+          "ru": "Подключение к тепловому насосу",
+          "pt": "Ligação à bomba de calor",
+          "nl": "Verbinding met de warmtepomp",
+          "fr": "Connexion à la pompe à chaleur",
+          "it": "Connessione alla pompa di calore",
+          "es": "Conexión con la bomba de calor",
+          "pl": "Połączenie z pompą ciepła",
+          "uk": "Підключення до теплового насоса",
+          "zh-cn": "热泵连接"
         },
         "type": "boolean",
         "read": true,

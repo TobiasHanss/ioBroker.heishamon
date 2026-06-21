@@ -275,8 +275,11 @@ function determineRole(datapoint: DataPoint, commonType: 'number' | 'string'): s
 
   // Generic numeric fallback. `l/min` (flow), `%` (duty), `K` (delta-T),
   // `bar`, `Ampere`, `min`, `h`, `Steps`, `count`, undefined units all land
-  // here. ioBroker's `value` role is the documented default.
-  return 'value';
+  // here. ioBroker convention: read-only numerics use the `value` role, while
+  // writable ones use `level` — the `value` role requires `write = false`, so a
+  // writable datapoint with role `value` is rejected by the repository checker
+  // (E1011). This covers all writable enums, deltas, durations and controls.
+  return writable ? 'level' : 'value';
 }
 
 /**
