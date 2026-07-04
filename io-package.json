@@ -1,8 +1,21 @@
 {
   "common": {
     "name": "heishamon",
-    "version": "0.0.13",
+    "version": "0.0.14",
     "news": {
+      "0.0.14": {
+        "en": "Corrected the maintainer email address in the package metadata. The K/L-series extra data block poll now defaults to off (opt-in) — a fresh install no longer polls datapoints that H/J pumps cannot provide. No other functional change.",
+        "de": "Maintainer-E-Mail-Adresse in den Paket-Metadaten korrigiert. Die Abfrage des K/L-Extra-Datenblocks ist jetzt standardmäßig aus (Opt-in) — eine Neuinstallation fragt keine Datenpunkte mehr ab, die H/J-Wärmepumpen nicht liefern. Keine weitere funktionale Änderung.",
+        "ru": "Исправлен адрес электронной почты сопровождающего в метаданных пакета. Опрос дополнительного блока данных серий K/L теперь по умолчанию выключен (по желанию) — новая установка больше не опрашивает точки данных, которых нет у насосов H/J. Других функциональных изменений нет.",
+        "pt": "Corrigido o endereço de e-mail do mantenedor nos metadados do pacote. A consulta do bloco de dados extra das séries K/L agora está desativada por padrão (opcional) — uma instalação nova já não consulta pontos de dados que as bombas H/J não fornecem. Sem outras alterações funcionais.",
+        "nl": "E-mailadres van de beheerder in de pakket-metadata gecorrigeerd. Het pollen van het K/L-extra-datablok staat nu standaard uit (opt-in) — een nieuwe installatie pollt geen datapunten meer die H/J-pompen niet leveren. Geen andere functionele wijziging.",
+        "fr": "Correction de l'adresse e-mail du mainteneur dans les métadonnées du paquet. L'interrogation du bloc de données supplémentaire des séries K/L est désormais désactivée par défaut (optionnelle) — une nouvelle installation n'interroge plus des points de données que les pompes H/J ne fournissent pas. Aucun autre changement fonctionnel.",
+        "it": "Corretto l'indirizzo email del manutentore nei metadati del pacchetto. Il polling del blocco dati extra delle serie K/L ora è disattivato per impostazione predefinita (opt-in) — una nuova installazione non interroga più punti dati che le pompe H/J non forniscono. Nessun'altra modifica funzionale.",
+        "es": "Corregida la dirección de correo del mantenedor en los metadatos del paquete. El sondeo del bloque de datos extra de las series K/L ahora está desactivado de forma predeterminada (opcional) — una instalación nueva ya no sondea puntos de datos que las bombas H/J no proporcionan. Sin otros cambios funcionales.",
+        "pl": "Poprawiono adres e-mail opiekuna w metadanych pakietu. Odpytywanie dodatkowego bloku danych serii K/L jest teraz domyślnie wyłączone (opcjonalne) — nowa instalacja nie odpytuje już punktów danych, których pompy H/J nie udostępniają. Brak innych zmian funkcjonalnych.",
+        "uk": "Виправлено адресу електронної пошти супровідника в метаданих пакета. Опитування додаткового блоку даних серій K/L тепер типово вимкнено (за бажанням) — нова інсталяція більше не опитує точки даних, яких немає в насосів H/J. Інших функціональних змін немає.",
+        "zh-cn": "更正了包元数据中维护者的电子邮件地址。K/L 系列额外数据块的轮询现在默认关闭（可选启用）——全新安装不再轮询 H/J 热泵无法提供的数据点。无其他功能变化。"
+      },
       "0.0.13": {
         "en": "Repository-checker follow-up: the release now uses npm trusted publishing (provenance via OIDC) on Node 24, the redundant mocha dev-dependency was removed (it ships with @iobroker/testing), the CI adapter-tests job now runs after check-and-lint, plus a minor lint-config cleanup. No functional change to the adapter.",
         "de": "Repository-Checker-Nachzug: Der Release nutzt jetzt npm Trusted Publishing (Provenance via OIDC) auf Node 24, die überflüssige mocha-devDependency wurde entfernt (kommt mit @iobroker/testing mit), der CI-Job adapter-tests läuft jetzt nach check-and-lint, dazu eine kleine Lint-Config-Bereinigung. Keine funktionale Änderung am Adapter.",
@@ -108,7 +121,7 @@
       "uk": "Напряму спілкується з тепловим насосом Panasonic Aquarea за протоколом CN-CNT через послідовний порт (RS232 на роз'ємі CN-CNT; за потреби конвертер RS232/RS485 для довгих кабелів) без HeishaMon та MQTT.",
       "zh-cn": "通过串口直接与 Panasonic Aquarea 热泵的 CN-CNT 协议通讯（CN-CNT 接口为 RS232 电平，长线缆可选配 RS232/RS485 转换器），无需 HeishaMon 与 MQTT。"
     },
-    "authors": ["Tobias Hanss <tobias.hanss@atcetera.de>"],
+    "authors": ["Tobias Hanss <t.dev@familie-hanss.de>"],
     "keywords": ["heishamon", "panasonic", "aquarea", "heatpump", "rs232", "rs485", "cn-cnt", "serial"],
     "licenseInformation": {
       "license": "MIT",
@@ -144,7 +157,7 @@
     "device": "/dev/ttyUSB0",
     "baudRate": 9600,
     "pollIntervalSec": 5,
-    "extraPollEnabled": true,
+    "extraPollEnabled": false,
     "optionalPcbPollEnabled": false,
     "readOnlyMode": false,
     "setCommandGapMs": 200,

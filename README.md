@@ -37,7 +37,7 @@ For wiring the heat pump, see [Wiring](#wiring) below.
 | `device` | `/dev/ttyUSB0` | Path to the serial device the adapter opens. Must be readable by the ioBroker process. |
 | `baudRate` | `9600` | Panasonic Aquarea uses 9600 8E1 — do not change unless you use a custom transceiver. |
 | `pollIntervalSec` | `5` | How often the adapter polls the heat pump (seconds). |
-| `extraPollEnabled` | `true` | Polls the additional energy data block (K/L series). Harmless on older models. |
+| `extraPollEnabled` | `false` | Polls the additional energy data block (K/L series only). Off by default — enable it only on a K/L pump; on H/J models the extra poll just times out. |
 | `readOnlyMode` | `false` | Passive listening only: do not send any polls or set commands, only decode frames from another master on the bus. |
 
 ## Features
@@ -224,6 +224,11 @@ The CN-CNT protocol itself is not published by Panasonic; what HeishaMon discove
     ### **WORK IN PROGRESS**
 -->
 
+### 0.0.14 (2026-06-29)
+* (Tobias Hanss) Corrected the maintainer email address in the package metadata (`package.json`, `io-package.json`)
+* (Tobias Hanss) `extraPollEnabled` now defaults to **off** (opt-in) — the K/L-series extra data block is only polled when explicitly enabled, so a fresh install never polls datapoints that H/J pumps cannot provide. Existing instances keep their current setting
+* (Tobias Hanss) Documentation: reworked the hardware/wiring section — clarified that only a plain serial link is needed (no HeishaMon device), made 2-wire RS485 the recommended real-world path, added a Raspberry Pi GPIO UART step-by-step, and a dead-mainboard warning at the wiring pinouts
+
 ### 0.0.13 (2026-06-28)
 * (Tobias Hanss) Release now uses npm trusted publishing (provenance via OIDC) on Node 24 — fixes repository-checker E2008/E3019/E3022
 * (Tobias Hanss) Removed the redundant `mocha` dev-dependency (it ships with `@iobroker/testing`) — E0063; the CI `adapter-tests` job now declares `needs: check-and-lint` — E3014
@@ -279,7 +284,7 @@ The CN-CNT protocol itself is not published by Panasonic; what HeishaMon discove
 
 MIT License
 
-Copyright (c) 2026 Tobias Hanss <tobias.hanss@atcetera.de>
+Copyright (c) 2026 Tobias Hanss <t.dev@familie-hanss.de>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

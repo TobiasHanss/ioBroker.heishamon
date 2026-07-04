@@ -56,7 +56,7 @@
       "type": "checkbox",
       "label": "Poll the extra data block (K/L series only)",
       "help": "Adds 6 additional 16-bit energy datapoints. Only enable this on a K/L series heat pump — older models do not provide these values, so each extra poll would just time out.",
-      "default": true,
+      "default": false,
       "newLine": true,
       "xs": 12,
       "sm": 12,
